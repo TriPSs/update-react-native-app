@@ -45,12 +45,12 @@ export default class Updater {
       const currentVersion = Updater.UpdateRNApp.versionName.replace('v', '').split('.').join('')
 
       if (latestVersion > currentVersion) {
-        const apkUrl = latestRelease.assets.find(asset => asset.browser_download_url.indexOf('.apk') > -1)
+        const apkAsset = latestRelease.assets.find(asset => asset.browser_download_url.indexOf('.apk') > -1)
 
-        if (apkUrl) {
+        if (apkAsset) {
           this.fire('onUpdateAvailable', (yesUpdate) => {
             if (yesUpdate) {
-              this.downloadApk(apkUrl)
+              this.downloadApk(apkAsset)
             }
           })
         }
@@ -58,17 +58,17 @@ export default class Updater {
     }
   }
 
-  downloadApk = (apkUrl) => {
+  downloadApk = (apkAsset) => {
     const progress = (data) => {
       const percentage = ((100 * data.bytesWritten) / data.contentLength) | 0
 
       this.fire('onProgress', percentage)
     }
 
-    const downloadDest = `${RNFS.CachesDirectoryPath}/NewApp.apk`
+    const downloadDest = `${RNFS.CachesDirectoryPath}/${apkAsset.name}`
 
     const downloadFile = RNFS.downloadFile({
-      fromUrl        : apkUrl,
+      fromUrl        : apkAsset.browser_download_url,
       toFile         : downloadDest,
       begin          : (response) => this.fire('onDownloadStart'),
       progress,
