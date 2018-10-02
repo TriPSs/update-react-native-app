@@ -1,0 +1,9 @@
+.DS_Store
+xcuserdata
+build/
+*.iml
+yarn-error.log
+.babelrc
+node_modules
+.idea
+

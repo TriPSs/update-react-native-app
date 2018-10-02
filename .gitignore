@@ -1,0 +1,9 @@
+.DS_Store
+xcuserdata
+build/
+*.iml
+npm-debug.log
+.idea
+node_modules
+Updater.js
+
