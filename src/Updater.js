@@ -48,7 +48,7 @@ export default class Updater {
         const apkAsset = latestRelease.assets.find(asset => asset.browser_download_url.indexOf('.apk') > -1)
 
         if (apkAsset) {
-          this.fire('onUpdateAvailable', (yesUpdate) => {
+          this.fire('onUpdateAvailable', latestRelease, (yesUpdate) => {
             if (yesUpdate) {
               this.downloadApk(apkAsset)
             }
