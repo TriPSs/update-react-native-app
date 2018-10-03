@@ -1,9 +1,9 @@
 # Update React Native App
-Update apk and update from app store in React Native.
+Uses Github releases to update apk in React Native
 
 ## Installation
 ```bash
-yarn add react-native-appupdate --save
+yarn add update-react-native-app
 ```
 
 adding automatically with react-native link
