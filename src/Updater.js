@@ -65,7 +65,7 @@ export default class Updater {
       this.fire('onProgress', percentage)
     }
 
-    const downloadDest = `${RNFS.CachesDirectoryPath}/${apkAsset.name}`
+    const downloadDest = `${RNFS.ExternalCachesDirectoryPath}/${apkAsset.name}`
 
     const downloadFile = RNFS.downloadFile({
       fromUrl        : apkAsset.browser_download_url,

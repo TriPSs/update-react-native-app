@@ -47,17 +47,9 @@ public class UpdateRNApp extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void installApk(String file) {
-        String cmd = "chmod 777 " + file;
-
-        try {
-            Runtime.getRuntime().exec(cmd);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.setDataAndType(Uri.parse("file://" + file), "application/vnd.android.package-archive");
+        intent.setDataAndType(Uri.fromFile(new File(file)), "application/vnd.android.package-archive");
 
         getCurrentActivity().startActivity(intent);
     }
