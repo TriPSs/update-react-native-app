@@ -44,7 +44,7 @@ export default class Updater {
       const latestVersion = latestRelease.tag_name.replace('v', '').split('.').join('')
       const currentVersion = Updater.UpdateRNApp.versionName.replace('v', '').split('.').join('')
 
-      if (latestVersion > currentVersion) {
+      if (parseInt(latestVersion, 10) > parseInt(currentVersion, 10)) {
         const apkAsset = latestRelease.assets.find(asset => asset.browser_download_url.indexOf('.apk') > -1)
 
         if (apkAsset) {
