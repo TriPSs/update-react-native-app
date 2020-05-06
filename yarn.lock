@@ -1761,6 +1761,18 @@ sax@^1.2.4:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
 
+semver-max@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/semver-max/-/semver-max-1.0.0.tgz#1fa21c80bb8d971c31fcb1d580b05ac96ea9bbb2"
+  integrity sha1-H6IcgLuNlxwx/LHVgLBayW6pu7I=
+  dependencies:
+    semver "^5.0.1"
+
+semver@^5.0.1:
+  version "5.7.1"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-5.7.1.tgz#a954f931aeba508d307bbf069eff0c01c96116f7"
+  integrity sha512-sauaDf/PZdVgrLTNYHRtpXa1iRiKcaebiKQ1BJdpQlWH2lCvexQdX55snPFyK7QzpudqbCI0qXFfOasHdyNDGQ==
+
 semver@^5.3.0:
   version "5.5.1"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.5.1.tgz#7dfdd8814bdb7cabc7be0fb1d734cfb66c940477"

@@ -1,5 +1,6 @@
 import { NativeModules, Platform } from 'react-native'
 import RNFS from 'react-native-fs'
+import semverMax from 'semver-max'
 
 export default class Updater {
 
@@ -40,18 +41,14 @@ export default class Updater {
   getApkVersionSuccess = (releases) => {
     const latestRelease = releases.length > 0 ? releases[0] : null
 
-    if (latestRelease) {
-      const latestVersion = latestRelease.tag_name.replace('v', '').split('.').join('')
-      const currentVersion = Updater.UpdateRNApp.versionName.replace('v', '').split('.').join('')
+    // Only if we have a latest release and it's higher then the current one
+    if (latestRelease && semverMax(latestRelease.tag_name, Updater.UpdateRNApp.versionName) !== Updater.UpdateRNApp.versionName) {
+      const apkAsset = latestRelease.assets.find(asset => asset.browser_download_url.indexOf('.apk') > -1)
 
-      if (parseInt(latestVersion, 10) > parseInt(currentVersion, 10)) {
-        const apkAsset = latestRelease.assets.find(asset => asset.browser_download_url.indexOf('.apk') > -1)
-
-        if (apkAsset) {
-          this.fire('onUpdateAvailable', latestRelease, () => {
-            this.downloadApk(apkAsset)
-          })
-        }
+      if (apkAsset) {
+        this.fire('onUpdateAvailable', latestRelease, () => {
+          this.downloadApk(apkAsset)
+        })
       }
     }
   }
