@@ -1,4 +1,13 @@
-# 1.2.0 (2020-05-06)
+# [1.3.0](https://github.com/tripss/update-react-native-app/compare/v1.2.0...v1.3.0) (2020-05-06)
+
+
+### Features
+
+* Use semver-max to check the different versions ([29fb009](https://github.com/tripss/update-react-native-app/commit/29fb009026718d4d4d001181915090ef97a3c435))
+
+
+
+# [1.2.0](https://github.com/tripss/update-react-native-app/compare/13023a17291b295a1e6f7103273f6359a6bcefa4...v1.2.0) (2020-05-06)
 
 
 ### Bug Fixes
