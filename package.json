@@ -30,7 +30,7 @@
     "prepublish": "yarn build"
   },
   "dependencies": {
-    "react-native-fs": "^2.3.3"
+    "react-native-fs": "2.16.6"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

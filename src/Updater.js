@@ -48,10 +48,8 @@ export default class Updater {
         const apkAsset = latestRelease.assets.find(asset => asset.browser_download_url.indexOf('.apk') > -1)
 
         if (apkAsset) {
-          this.fire('onUpdateAvailable', latestRelease, (yesUpdate) => {
-            if (yesUpdate) {
-              this.downloadApk(apkAsset)
-            }
+          this.fire('onUpdateAvailable', latestRelease, () => {
+            this.downloadApk(apkAsset)
           })
         }
       }
@@ -68,11 +66,11 @@ export default class Updater {
     const downloadDest = `${RNFS.ExternalCachesDirectoryPath}/${apkAsset.name}`
 
     const downloadFile = RNFS.downloadFile({
-      fromUrl        : apkAsset.browser_download_url,
-      toFile         : downloadDest,
-      begin          : (response) => this.fire('onDownloadStart'),
+      fromUrl: apkAsset.browser_download_url,
+      toFile: downloadDest,
+      begin: (response) => this.fire('onDownloadStart'),
       progress,
-      background     : true,
+      background: true,
       progressDivider: 1,
     })
 
