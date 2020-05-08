@@ -40,9 +40,10 @@ export default class Updater {
 
   getApkVersionSuccess = (releases) => {
     const latestRelease = releases.length > 0 ? releases[0] : null
+    const latestVersion = latestRelease.tag_name.replace('v', '')
 
     // Only if we have a latest release and it's higher then the current one
-    if (latestRelease && semverMax(latestRelease.tag_name, Updater.UpdateRNApp.versionName) !== Updater.UpdateRNApp.versionName) {
+    if (latestRelease && semverMax(latestVersion, Updater.UpdateRNApp.versionName) !== Updater.UpdateRNApp.versionName) {
       const apkAsset = latestRelease.assets.find(asset => asset.browser_download_url.indexOf('.apk') > -1)
 
       if (apkAsset) {
