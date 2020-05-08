@@ -1,3 +1,12 @@
+## [1.3.1](https://github.com/tripss/update-react-native-app/compare/v1.3.0...v1.3.1) (2020-05-08)
+
+
+### Bug Fixes
+
+* Fixed comparesing not going correctly ([a8ed14f](https://github.com/tripss/update-react-native-app/commit/a8ed14f53cf2d3914c4a7ad8e98a7ea29b7d8c57))
+
+
+
 # [1.3.0](https://github.com/tripss/update-react-native-app/compare/v1.2.0...v1.3.0) (2020-05-06)
 
 
